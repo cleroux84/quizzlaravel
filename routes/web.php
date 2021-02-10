@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [QuestionController::class, 'testController']);
+Route::get('/', [QuestionController::class, 'askQuestion']);
 
