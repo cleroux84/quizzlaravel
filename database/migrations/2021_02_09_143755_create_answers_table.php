@@ -17,7 +17,7 @@ class CreateAnswersTable extends Migration
             $table->id();
             $table->string('answer');
             $table->foreignId('question_id')->constrained();
-            $table->boolean('is_valid');
+            $table->boolean('is_valid')->default(false);
             $table->timestamps();
         });
     }

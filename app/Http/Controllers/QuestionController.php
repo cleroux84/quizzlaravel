@@ -38,6 +38,26 @@ class QuestionController extends Controller
         $arrayAnswerProposals = explode(";",$answerProposals->proposals);
         
         $correctAnswer = $answerProposals->answer;
+
+        $path = storage_path() . "/json/questions.json"; 
+        $json = json_decode(file_get_contents($path), true);
+        for ($i=0; $i < count($json); $i++) 
+        {
+            $question_id = DB::table('questions')->where('label', '=', $json[$i]['data']['label'])->first()->id;
+            if($json[$i]['type'] === "checkbox" || $json[$i]['type'] === "radio")
+            {
+              
+                $array2 = $json[$i]['data']['answers'];
+                for ($y = 0; $y < count($array2); $y++)
+                {
+                    if (DB::table('answers')->where('answer', '=', $array2[$y]))
+                    {$isValid = 1;}
+                }
+               
+            }
+        }
+
+
         return view('quizz', [
             'questionRandom' => $questionRandom,
             'type' => $type,
