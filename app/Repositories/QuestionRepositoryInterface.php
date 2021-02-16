@@ -7,7 +7,6 @@ interface QuestionRepositoryInterface
 {
    public function all(): Collection;
 
-
    public function questionRandom(): Collection;
    
 }

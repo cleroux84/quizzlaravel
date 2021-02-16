@@ -18,6 +18,7 @@ class QuestionRepository implements QuestionRepositoryInterface
    public function questionRandom(): Collection
    {
         $questionRandom = collect(Question::with('answers')->get()->random(1));
+        
         return $questionRandom;
    }
 

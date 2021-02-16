@@ -25,8 +25,8 @@ class QuestionsTableSeeder extends Seeder
                 array(
                 'label'=> $question['data']['label'],
                 'type_id'=>$type_id,
-            )
+                )
             )->save();
-    }
+        }
     }
 }

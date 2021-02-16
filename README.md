@@ -1,3 +1,31 @@
+    <h3> {{$questionRandom}} ? </h3>
+    @if($type === "radio")
+    <h3>select an answer : </h3>
+        @foreach($arrayAnswerProposals as $proposal)
+            <input type="radio" name="answerInput" id="answerInput"> {{$proposal}}
+        @endforeach
+    @elseif($type === "checkbox")
+    <h3>select answers : </h3>
+        @foreach($arrayAnswerProposals as $proposal)
+            <input type="checkbox" name="answerInput" id="answerInput"> {{$proposal}}
+        @endforeach
+    @else
+        <input type="text" name="answerInput" id="answerInput" placeholder="Enter your answer">
+    @endif
+<button type="submit" onclick="check()">Submit</button> 
+
+</form> 
+
+    
+<p>correct answer : {{ $correctAnswer }}</p>
+</body>
+<script type="text/javascript">
+    function check() {
+        var inputvalue = document.getElementById("answerInput");
+        console.log(inputvalue.value);
+    }
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">

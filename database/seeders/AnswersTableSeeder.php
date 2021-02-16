@@ -31,15 +31,15 @@ class AnswersTableSeeder extends Seeder
                             )
                         )->save();
                     }
-                } else {
-                    $answer = ($json[$i]['data']['answer']);
-                    Answer::create(
-                        array(
-                            'answer' => $answer,
-                            'question_id' => $question_id,
-                        )
-                    )->save();
-                };
+            } else {
+                $answer = ($json[$i]['data']['answer']);
+                Answer::create(
+                    array(
+                        'answer' => $answer,
+                        'question_id' => $question_id,
+                    )
+                )->save();
+            };
         }
     }
 }
