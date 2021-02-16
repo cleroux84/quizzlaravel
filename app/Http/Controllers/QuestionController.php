@@ -26,6 +26,7 @@ class QuestionController extends Controller
     { 
         $questions = $this->QuestionRepository->questionRandom();
         foreach($questions as $question) {
+            //dd($question['answers']);
             return view('quizz', [
                 'question' => $question,
             ]);
