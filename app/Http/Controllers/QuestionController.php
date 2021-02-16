@@ -31,24 +31,6 @@ class QuestionController extends Controller
                 'question' => $question,
             ]);
         }
-        
-       /*  dd($question['label']); 
-         /* $path = storage_path() . "/json/questions.json"; 
-        $json = json_decode(file_get_contents($path), true); 
-        var_dump($json);  */
-
-        /* $numberRandom = rand(1, 3);
-        $question = Question::find($numberRandom);
-        $questionRandom = $question->label; 
-        $questionType = $question->type_id;
-        $type = Type::find($questionType)->name;
-        $questionId = $question->question_id;
-        
-        $answerProposals = Answer::find($questionId);
-        $arrayAnswerProposals = explode(";",$answerProposals->proposals);
-        
-        $correctAnswer = $answerProposals->answer; */
-    
     } 
     
     

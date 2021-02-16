@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [QuestionController::class, 'questionRandom']);
+/* Route::get('/', function (){
+    return 'faire user connexion';
+}
+); */
+Route::get('/', [UserController::class, 'create']);
+Route::get('/quizz', [QuestionController::class, 'questionRandom']);
+
 

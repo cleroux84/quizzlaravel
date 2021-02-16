@@ -6,7 +6,7 @@
     <title>Quizz</title>
 </head>
 <body>
- <form method="POST" action=""> 
+<!--  <form method="POST" action="">  -->
 
 <h1>Answer the question : </h1>
 <h3>{{ $question['label'] }} ? </h3>
@@ -20,5 +20,5 @@
         @endif
     @endforeach
     <button type="submit">Submit</button>
-</script>
+
 </html>
