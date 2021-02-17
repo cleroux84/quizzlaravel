@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserAnswerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/* Route::get('/', function (){
-    return 'faire user connexion';
-}
-); */
-Route::get('/', [UserController::class, 'create']);
-Route::get('/quizz', [QuestionController::class, 'questionRandom']);
+
+Route::get('/', [UserController::class, 'viewForm']);   
+
+Route::post('create', [UserController::class, 'create']);
+
+Route::get('/quizz/{id}', [QuestionController::class, 'questionRandom']);
+
+Route::post('registerAnswer', [UserAnswerController::class, 'registerAnswer']);
+
 
 

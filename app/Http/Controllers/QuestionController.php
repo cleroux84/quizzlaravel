@@ -20,8 +20,6 @@ class QuestionController extends Controller
         return $this->QuestionRepository=$questionRepository;
     }
     
-
-
     public function questionRandom()
     { 
         $questions = $this->QuestionRepository->questionRandom();

@@ -7,7 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserAnswer extends Model
 {
+    
     use HasFactory;
+
+    protected $fillable = [
+        'answer_id',
+        'user_id'
+    ];
 
     public function answer()
     {

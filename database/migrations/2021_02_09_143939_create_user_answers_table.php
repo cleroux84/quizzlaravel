@@ -17,6 +17,7 @@ class CreateUserAnswersTable extends Migration
             $table->id();
             $table->foreignId('answer_id')->constrained();
             $table->foreignId('user_id')->constrained();
+            $table->string('label');
             $table->timestamps();
         });
     }
