@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+
 use App\Repositories\UserAnswerRepositoryInterface;
 use App\Models\UserAnswer;
 use Illuminate\Http\Request;
-use Symfony\Component\Console\Input\Input;
-use App\Repositories\UserRepositoryInterface;
-use Illuminate\Support\Facades\DB;
-use PhpParser\Node\Expr\New_;
 
 class UserAnswerController extends Controller
 {   

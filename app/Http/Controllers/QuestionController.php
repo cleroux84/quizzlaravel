@@ -2,12 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Answer;
-use Illuminate\Http\Request;
-use App\Models\Question;
-use App\Models\Type;
-use Illuminate\Support\Facades\DB;
-use App\Repositories\QuestionRepository;
 use App\Repositories\QuestionRepositoryInterface;
 use Illuminate\Routing\Controller;
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserAnswerController;
@@ -24,5 +25,9 @@ Route::get('/quizz/{id}', [QuestionController::class, 'questionRandom']);
 
 Route::post('registerAnswer', [UserAnswerController::class, 'registerAnswer']);
 
+Route::get('answer', [AnswerController::class, 'checkAnswer']);
+/* Route::get('/answer', function () {
+    return 'Hello World';
+}); */
 
 
