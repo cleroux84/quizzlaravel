@@ -7,7 +7,10 @@
 </head>
 <body>
 
-<h1> WAZAAAAAAAAA </h1>
+<h3> Questions :  </h3>
+<h1>Vrai / Faux : </h1>
+<h3>Réponse choisie : </h3>
+<h3>Bonne réponse : </h3>
 
 
 

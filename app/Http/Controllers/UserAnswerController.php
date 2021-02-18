@@ -19,45 +19,40 @@ class UserAnswerController extends Controller
     
     public function registerAnswer(Request $request)
     {
-        //$input = $request->all();
         $typeAnswer = $request->typeAnswerHidden;
-        
- 
 
-        $arrayChecked = $request->get('answer_id');
-        
-            foreach($arrayChecked as $answerchecked){
-                if(intval($answerchecked) === 0){
-                    $userAnswer = New UserAnswer;
-                    $userAnswer->label = $arrayChecked[0];
-                    $userAnswer->user_id = $request->get('user_id');
-                    $userAnswer->save();
-              } else {
-                    $userAnswer = New UserAnswer;
-                    $userAnswer->user_id = $request->get('user_id');
-                    $userAnswer->answer_id = $answerchecked;
-                    $userAnswer->save(); 
-                    }
-                }   
-       
-        
-            /* if(strtolower($request->get('answer_id')) === "jaune"){
-                dd('vrai');
-            } else {
-                dd('faux');
-            } */
-            //dd($request->get('answer_id'));
-    
-        
-		//$this->userAnswerRepository->registerAnswer($input);
-        $id = $request->get('user_id');
-        return redirect()->action(
-            [QuestionController::class, 'questionRandom'],
-            ['id' => $id],
-
-        );
-    } 
-
+        if ($typeAnswer === "1")
+        {
+            $answer = $request->textanswer;
+            $request->except('_token');
+            $userId = $request->userHidden;
+            $data = ['user_id' => $userId, 'answer_id' => null, 'label' => $answer];
+            //dd($data);
+            $registerAnswer = $this->UserAnswerRepository->registerAnswer($data);
+        }
+        elseif ($typeAnswer === "2")
+        {
+            $answers = $request->checkboxanswer;
+            foreach ($answers as $answer) 
+            {
+                $request->except('_token');
+                $userId = $request->userHidden;
+                $data = ['user_id' => $userId, 'answer_id' => $answer];
+                $registerAnswer = $this->UserAnswerRepository->registerAnswer($data);
+            }
+        } 
+        else 
+        {
+            $answers = $request->radioanswer;
+            foreach ($answers as $answer) 
+            {
+                $request->except('_token');
+                $userId = $request->userHidden;
+                $data = ['user_id' => $userId, 'answer_id' => $answer];
+                $registerAnswer = $this->UserAnswerRepository->registerAnswer($data);
+            }
+        }
+    }
     
 }    
     
