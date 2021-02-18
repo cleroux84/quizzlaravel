@@ -7,9 +7,9 @@
 </head>
 <body>
 
-<h3> Questions :  </h3>
+<h3> Questions : {{ $question }} </h3>
 <h1>Vrai / Faux : </h1>
-<h3>Réponse choisie : </h3>
+<h3>Réponse choisie : {{ $answerUser }}</h3>
 <h3>Bonne réponse : </h3>
 
 

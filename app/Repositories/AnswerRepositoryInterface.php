@@ -7,6 +7,6 @@ interface AnswerRepositoryInterface
 {
    public function all(): Collection;
 
-   public function checkAnswer();
+/*    public function questionAsked(); */
    
 }

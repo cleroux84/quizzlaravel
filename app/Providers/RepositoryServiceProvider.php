@@ -8,7 +8,11 @@ use App\Repositories\UserRepositoryInterface;
 use App\Repositories\UserRepository; 
 use App\Repositories\UserAnswerRepositoryInterface; 
 use App\Repositories\UserAnswerRepository; 
+use App\Repositories\AnswerRepositoryInterface; 
+use App\Repositories\AnswerRepository; 
 use Illuminate\Support\ServiceProvider; 
+
+
 
 /** 
 * Class RepositoryServiceProvider 

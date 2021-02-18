@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Repositories\UserAnswerRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class UserAnswerController extends Controller
 {   
@@ -31,10 +33,13 @@ class UserAnswerController extends Controller
             $this->UserAnswerRepository->registerAnswer($input);
         }
             $id = $userId;
+            $lastAnswerId = DB::table('user_answers')->latest()->first()->answer_id;
+            //dd(strval($lastAnswerId));
             return redirect()->action(
                 [AnswerController::class, 'checkAnswer'],
-                ['id' => $id],
-            );
+                ['id' => $id,
+                'lastAnswerId' => $lastAnswerId],
+            );  
     }
     
 }    
