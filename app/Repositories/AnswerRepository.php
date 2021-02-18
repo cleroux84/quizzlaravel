@@ -4,6 +4,8 @@ namespace App\Repositories;
 
 use App\Models\Answer;
 use Illuminate\Support\Collection;
+use App\Repositories\AnswerRepositoryInterface;
+
 
 class AnswerRepository implements AnswerRepositoryInterface
 {

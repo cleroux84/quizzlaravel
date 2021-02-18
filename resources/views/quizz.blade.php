@@ -12,25 +12,18 @@
         <form action="{{ action('UserAnswerController@registerAnswer') }}" , method="POST">
             @csrf
             <p><span class='lead'></span> {{ $question['label'] }}</p>
-
             <p class='lead'>Réponse(s) :</p>
-
-
-
             <input class="form-hidden" type="hidden" name="userHidden" id="" value="{{request()->route('id')}}">
             @foreach($question['answers'] as $answer)
 
             @if($question['type_id'] == 1)
-            <input class="form-hidden" type="hidden" name="typeAnswerHidden" value ="1">
-            <input class="form-textarea" type="textarea" name="textanswer" id="" value="">
+            <input class="form-textarea" type="textarea" name="answer_id[]" id="" value="">
             @endif
 
 
             @if($question['type_id'] == 2)
             <div class="form-check">
-            <input class="form-hidden" type="hidden" name="typeAnswerHidden" value ="2">
-
-                <input class="form-check-input" type="checkbox" name="checkboxanswer[]" id="" value="{{$answer['id']}}">
+                <input class="form-check-input" type="checkbox" name="answer_id[]" id="" value="{{$answer['id']}}">
                 <label class="form-check-label" for="checkboxanswer">
                     {{$answer['answer']}}
                 </label>
@@ -38,9 +31,7 @@
             @endif
             @if($question['type_id'] == 3)
             <div class="form-check">
-            <input class="form-hidden" type="hidden" name="typeAnswerHidden" value ="3">
-
-                <input class="form-check-input" type="radio" name="radioanswer[]" id="" value="{{$answer['id']}}">
+                <input class="form-check-input" type="radio" name="answer_id[]" id="" value="{{$answer['id']}}">
                 <label class="form-check-label" for="radioanswer">
                     {{$answer['answer']}}
                 </label>
