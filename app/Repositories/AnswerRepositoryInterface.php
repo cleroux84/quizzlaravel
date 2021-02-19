@@ -7,6 +7,8 @@ interface AnswerRepositoryInterface
 {
    public function all(): Collection;
 
-/*    public function questionAsked(); */
-   
+   public function getTypeId($questionId); 
+   public function getQuestion($questionId);
+   public function getCorrectAnswers($questionId);
+   public function getAnswerArray($typeId);
 }
