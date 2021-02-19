@@ -23,22 +23,23 @@ class UserAnswerController extends Controller
         $arrayChecked = $request->answer_id;
         foreach($arrayChecked as $answerchecked){
             $userId = $request->userHidden;
+            $questionId = $request->questionHidden;
             if(intval($answerchecked) === 0){
                 $input = ['user_id' => $userId, 'answer_id' => null, 'label' => $arrayChecked[0]];
                 
             } else {
                 $input = ['user_id' => $userId, 'answer_id' => $answerchecked];
             }
-            
+     
             $this->UserAnswerRepository->registerAnswer($input);
         }
             $id = $userId;
-            $lastAnswerId = DB::table('user_answers')->latest()->first()->answer_id;
-            //dd(strval($lastAnswerId));
+                    
             return redirect()->action(
                 [AnswerController::class, 'checkAnswer'],
                 ['id' => $id,
-                'lastAnswerId' => $lastAnswerId],
+                'questionId' => $questionId,
+                ],
             );  
     }
     

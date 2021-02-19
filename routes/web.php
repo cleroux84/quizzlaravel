@@ -25,7 +25,7 @@ Route::get('/quizz/{id}', [QuestionController::class, 'questionRandom']);
 
 Route::post('registerAnswer', [UserAnswerController::class, 'registerAnswer']);
 
-Route::get('answer/{id}/{lastAnswerId}', [AnswerController::class, 'checkAnswer']);
+Route::get('answer/{id}/{questionId}', [AnswerController::class, 'checkAnswer']);
 
 /* Route::get('/answer', function () {
     return 'Hello World';

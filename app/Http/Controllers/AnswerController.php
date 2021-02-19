@@ -21,22 +21,49 @@ class AnswerController extends Controller
     
     public function checkAnswer(Request $request)
     { 
-       $lastAnswerId = request()->route('lastAnswerId');
-       $answerUser = DB::table('answers')->where('id', $lastAnswerId)->first()->answer;
-       $questionId = DB::table('answers')->where('id', $lastAnswerId)->first()->question_id;
-       $question = DB::table('questions')->where('id', $questionId)->first()->label;    
+        $questionId = $request->route('questionId');
+        $id = $request->route('id');
+        $typeId = DB::table('questions')->where('id', $questionId)->first()->type_id;
+    
+        $arrayAnswers = [];
 
-       $QuestionAnswer = DB::table('answers')->where('question_id', '=', $questionId)->get();
-      
-       //dd($QuestionAnswer);
+        if($typeId === 2)
+        {
+            $lastAnswerId = DB::table('user_answers')->latest()->first()->answer_id; 
+            $answerUser = DB::table('answers')->where('id', $lastAnswerId)->first()->answer;
+            $lastUserAnswerId = DB::table('user_answers')->latest()->first()->id;
+            $lastSecondUserAnswerId = $lastUserAnswerId + 1;
+            $secondAnswerId = DB::table('user_answers')->where('id', $lastSecondUserAnswerId)->first()->answer_id; 
+            $secondAnswerUser = DB::table('answers')->where('id', $secondAnswerId)->first()->answer;
+            array_push($arrayAnswers, $answerUser, $secondAnswerUser);
+            //dd($arrayAnswers);
+        } elseif($typeId === 1){
+            
+            $lastAnswerLabel = DB::table('user_answers')->latest()->first()->label;
+            array_push($arrayAnswers, $lastAnswerLabel);
+            //dd($arrayAnswers);
+        }  else {
+            $lastAnswerId = DB::table('user_answers')->latest()->first()->answer_id; 
+            $answerUser = DB::table('answers')->where('id', $lastAnswerId)->first()->answer;
+            array_push($arrayAnswers, $answerUser);
+            //dd($arrayAnswers);
+        }
 
-       $test =  $this->answerRepository->all();
-       //dd($test);
-       return view('answer', [
-           'answerUser' => $answerUser,
-           'question' => $question,
+            //libellé de la question posée :
+            $question = DB::table('questions')->where('id', $questionId)->first()->label;
 
-       ]);
+            //tableau des réponses correctes :
+            $answersCorrects = DB::table('answers')->where([
+                ['question_id', '=', $questionId],
+                ['is_valid', '=', '1'],
+                ])->get();
+                
+            return view('answer', [
+                'question' => $question,
+                'answersCorrects' => $answersCorrects,
+                'arrayAnswers' => $arrayAnswers,
+                'id' => $id,
+            ]);
     } 
     
     
