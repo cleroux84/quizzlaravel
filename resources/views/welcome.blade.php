@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}" />
+    
     <title>Welcome Quizz</title>
 </head>
 <body>
-
-<h1> WELCOME </h1>
-<h3>Enter your name to play</h3>
-{{  Form::open( array('url' => action('UserController@create'), 'files'=>true,'method'=>'post') )  }}
-     {{Form::label('name')}}
-     {{Form::text('name')}}
+    <div class="form_user">
+        <h1 class="form_user_welcome"> WELCOME IN THE LARAVEL QUIZZ</h1>
+        <h3 class="form_user_title">Enter your name to play</h3>
     </div>
-</div>
-
-<div>
-    {{Form::submit('Go to the quizz !')}}
-</div>
+    
+    {{ Form::open( array('url' => action('UserController@create'), 'files'=>true,'method'=>'post')) }}
+    <div class="form_user_input">
+            {{ Form::text('name') }}
+    </div>
+    <div class="form_user_button">
+        {{Form::submit('Go to the quizz !',['class' => 'button_user'])}}
+    </div>
 
 {{ Form::close() }}
 

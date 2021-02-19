@@ -1,0 +1,210 @@
+@font-face {
+    font-family: "Hello_Jones";
+    src: url("/font/Hello Jones Free Trial.woff2") format("woff2"),
+           url("/font/Hello Jones Free Trial.woff") format("woff");
+   }
+
+body{
+    background-color: #343a40;
+    color: white;
+    font-family: Hello_Jones; 
+}
+input{
+    font-family: Hello_Jones;
+    text-align: center;
+    font-size: large;
+    border: solid 2px red;
+    border-radius: 10px;
+    height: 40px;
+}
+
+/* welcome view */
+.form_user{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family : Hello_Jones;
+}
+
+.form_user_title{
+    margin: auto;
+}
+
+.form_user_welcome{
+    padding: 100px;
+    margin: auto;
+    color: rgb(248, 27, 27);
+}
+
+.form_user_input{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.input_user{
+    font-family : Hello_Jones;
+}
+
+.form_user_label{
+    margin: auto;
+}
+
+.form_user_button{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.button_user {
+    border: 2px solid red;
+    border-radius: 10px;
+    font-family : Hello_Jones;
+    height: 40px;
+    text-align: center;
+    font-size: large;
+}
+.button_user {
+    transition-duration: 0.4s;
+  }
+
+.button_user:hover {
+    background-color: #343a40;
+    color: white;
+  } 
+/* fin welcome view */
+
+/* quizz view*/
+label.checkbox-label input[type=checkbox]{
+    position: relative;
+    vertical-align: middle;
+    bottom: 1px;
+    margin-left: 50px;  
+}
+label.radio-label input[type=radio]{
+    position: relative;
+    vertical-align: middle;
+    bottom: 1px;
+    margin-left: 50px;  
+}
+.form_question{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.question_label{
+    margin: auto;
+}
+
+.input_text{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-textarea{
+    justify-content: center;
+}
+
+.form_check{
+    display: flex;
+    justify-content: center;
+} 
+
+.input_checkbox{
+    margin-left: 30px;
+}
+
+.checkbox_div{
+    justify-content: center;
+}
+
+.button_quizz_form{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.button_quizz{
+    border: solid 2px red;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    transition-duration: 0.4s;
+}
+  
+.button_quizz:hover {
+    background-color: #343a40;
+    color: white;
+  }
+
+  .colclass{
+      flex-direction: row;
+  }
+  /* fin view quizz */
+
+/* view answer */
+.answer_title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 20px    ;
+}   
+.correct_wrong{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    flex-direction: column;
+    text-align: center;
+    margin-top: -50px;
+}
+
+.correct{
+    color: rgb(51, 219, 51);
+}
+.wrong{
+    color: rgb(255, 0, 0);
+}
+.fas, .far{
+    font-size: 80px;
+    margin: 25px;
+    margin-top: 15px;
+    /* color: red; */
+}
+.animate__animated.animate__headShake {
+    --animate-duration: 3s;
+  }
+
+  .answer_checked{
+      display: flex;
+      justify-content: center;
+      
+  }
+
+  .col{
+      width: 300px;
+  }
+.button_next_div{
+    display: flex;
+    justify-content: center;
+}
+
+.btn_next_question{
+    border: 2px solid red;
+    border-radius: 10px;
+    font-family : Hello_Jones;
+    height: 40px;
+    width: 150px;
+    text-align: center;
+    font-size: large;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .btn_next_question:hover {
+    background-color: #343a40;
+    color: white;
+  } 
+
+  .list_item{
+      font-size: 25px;
+  }
